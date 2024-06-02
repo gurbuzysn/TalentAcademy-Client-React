@@ -16,6 +16,8 @@ import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 
+import Deneme from './pages/Deneme'
+
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const { pathname } = useLocation();
@@ -33,6 +35,9 @@ function App() {
   ) : (
     <>
       <Routes>
+
+
+
         <Route
           index
           element={
@@ -42,6 +47,20 @@ function App() {
             </>
           }
         />
+
+
+          <Route 
+            path='/Deneme' 
+            element={
+              <>
+                <PageTitle title="Sayfa Başlığıııı"/>
+                <Deneme/>
+              </>
+            } />
+
+
+
+
         <Route
           path="/calendar"
           element={
