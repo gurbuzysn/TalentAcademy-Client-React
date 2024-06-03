@@ -165,7 +165,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             fill="white"
                           />
                         </svg>
-                        Kurs İşlemleri
+                        Öğrenci İşlemleri
                         <svg
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
                             open && 'rotate-180'
@@ -195,28 +195,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
 
                           <li>
-                            <NavLink
-                              to="/forms/form-elements"
-                              className={({ isActive }) =>
-                                'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ' +
-                                (isActive && '!text-white')
-                              }
-                            >
-                              Kursları Listele
-                            </NavLink>
-                          </li>
-
-
-                          <li>
-                              <NavLink to="/deneme" className={({ isActive }) => 
+                              <NavLink to="/Student/StudentList" className={({ isActive }) => 
                                 'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white' + (isActive && '!text-white')
                               }>
-                                Deneme Linki
+                                Öğrencileri Listele
                               </NavLink>
                           </li>
-
-
-
 
 
                           {/* <li>

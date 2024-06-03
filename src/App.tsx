@@ -16,7 +16,8 @@ import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 
-import Deneme from './pages/Deneme'
+import StudentList from './pages/Student/StudentList'
+
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -35,9 +36,6 @@ function App() {
   ) : (
     <>
       <Routes>
-
-
-
         <Route
           index
           element={
@@ -47,18 +45,16 @@ function App() {
             </>
           }
         />
-
-
-          <Route 
-            path='/Deneme' 
+          
+          <Route
+            path="/Student/StudentList"
             element={
               <>
-                <PageTitle title="Sayfa Başlığıııı"/>
-                <Deneme/>
+                <PageTitle title='Öğrenci Listesi'/>
+                <StudentList/>
               </>
-            } />
-
-
+            }
+          />
 
 
         <Route
