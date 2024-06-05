@@ -1,5 +1,5 @@
 # TalentAcademy-Client-React 
-Bu proje TalentAcademy-API projesini tüketmektedir. React kullanarak hazır bir admin template'i olan TailAdmin template'i , projenin ihtiyaçlarına göre şekildendirilerek oluşturulmuştur.
+Bu proje TalentAcademy-API projesinin önyüzünü oluşturmaktadır. "TailAdmin" admin template'i üzerinde React ve Tailwind kullanılarak şekillendirilmiştir.
 
 # Kullanılan Teknolojiler 💻
 ### React
