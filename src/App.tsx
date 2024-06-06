@@ -36,7 +36,7 @@ function App() {
     <>
       <Routes>
         <Route
-          index
+        path="/Home"
           element={
             <>
               <PageTitle title="Talent Academy - Online Eğitim Platformu" />
@@ -44,7 +44,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/Student/StudentList"
           element={
@@ -54,9 +53,6 @@ function App() {
             </>
           }
         />
-
-        
-
         <Route
           path="/calendar"
           element={
@@ -139,7 +135,8 @@ function App() {
           }
         />
         <Route
-          path="/auth/signin"
+        index
+          // path="/auth/signin"
           element={
             <>
               <PageTitle title="Signin | TailAdmin - Tailwind CSS Admin Dashboard Template" />

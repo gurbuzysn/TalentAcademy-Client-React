@@ -13,7 +13,7 @@ import Calendar from './pages/Calendar';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Router>
-      <Calendar />
+      <App />
     </Router>
   </React.StrictMode>,
 );

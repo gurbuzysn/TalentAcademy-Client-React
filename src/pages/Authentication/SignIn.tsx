@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
- 
-const SignIn: React.FC = () => {
+import { useNavigate, Navigate } from 'react-router-dom';
 
+const SignIn: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -157,24 +156,24 @@ const SignIn: React.FC = () => {
                 </h2>
 
                 <Formik
-                  initialValues={{ username: 'yasin.gurbuz@talentacademy.com', password: 'Admin123*' }}
-                  onSubmit={ async (values) => {
-                    
+                  initialValues={{
+                    username: 'yasin.gurbuz@talentacademy.com',
+                    password: 'Admin123*',
+                  }}
+                  onSubmit={async (values) => {
+                    await axios
+                      .post('https://localhost:7043/api/Auth/Login', {
+                        username: values.username,
+                        password: values.password,
+                      })
+                      .then(res => {
+                        console.log(res.data.message)
+
+                        // navigate('/Home');
 
 
-                    await axios.post('https://localhost:7043/api/Auth/Login', {
-                      username: values.username,
-                      password: values.password
-                    }).then(res => {
-                      console.log(res)
 
-                      navigate('/calendar');
-                    }).catch(err => {
-                      console.log('Login Failed:', err)
-                    })
-                    
-                    
-
+                      });
                   }}
                 >
                   {({ isSubmitting }) => (
