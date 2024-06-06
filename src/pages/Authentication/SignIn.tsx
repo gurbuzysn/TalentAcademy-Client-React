@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom'
+ 
 const SignIn: React.FC = () => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <div className="w-screen h-screen flex justify-center">
@@ -168,13 +168,9 @@ const SignIn: React.FC = () => {
                     }).then(res => {
                       console.log(res)
 
-
-                        if(res.status === 200){
-                          <NavLink to={"/Dashboard/ECommerce"}>
-
-                          </NavLink>
-                        }
-                      
+                      navigate('/calendar');
+                    }).catch(err => {
+                      console.log('Login Failed:', err)
                     })
                     
                     
