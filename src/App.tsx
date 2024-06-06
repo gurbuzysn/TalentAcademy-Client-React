@@ -16,8 +16,7 @@ import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 
-import StudentList from './pages/Student/StudentList'
-
+import StudentList from './pages/Student/StudentList';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -45,17 +44,26 @@ function App() {
             </>
           }
         />
-          
-          <Route
-            path="/Student/StudentList"
-            element={
-              <>
-                <PageTitle title='Öğrenci Listesi'/>
-                <StudentList/>
-              </>
-            }
-          />
 
+        <Route
+          path="/Student/StudentList"
+          element={
+            <>
+              <PageTitle title="Öğrenci Listesi" />
+              <StudentList />
+            </>
+          }
+        />
+
+        <Route
+          path="/Student/StudentList"
+          element={
+            <>
+              <PageTitle title="Öğrenci Listesi" />
+              <StudentList />
+            </>
+          }
+        />
 
         <Route
           path="/calendar"
