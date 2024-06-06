@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate, Navigate, useAsyncError } from 'react-router-dom';
+import DropdownUser from '../../components/Header/DropdownUser';
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
   return (
     <div className="w-screen h-screen flex justify-center">
@@ -167,12 +169,12 @@ const SignIn: React.FC = () => {
                         password: values.password,
                       })
                       .then(res => {
-                        console.log(res.data.message)
-
-                        // navigate('/Home');
+                          console.log(res.data);
 
 
 
+                          // setUser(res.data.result);
+                          // navigate('/Home');
                       });
                   }}
                 >
