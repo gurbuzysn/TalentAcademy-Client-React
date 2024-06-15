@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
 import { useNavigate, Navigate, useAsyncError } from 'react-router-dom';
-import DropdownUser from '../../components/Header/DropdownUser';
+//import DropdownUser from '../../components/Header/DropdownUser';
+
+import { setUserName, setToken, setRole, setId, setFullName } from '../../redux/userSlice';
+
+import { useDispatch } from 'react-redux';
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="w-screen h-screen flex justify-center">
@@ -168,14 +174,33 @@ const SignIn: React.FC = () => {
                         username: values.username,
                         password: values.password,
                       })
-                      .then(res => {
-                          console.log(res.data);
+                      .then((res) => {
+                        const userData = res.data.result;
+
+                        console.log(userData);
 
 
+                        // gelen user bilgilerini redux store'a kaydediyoruz
+                        dispatch(setUserName(userData.username));
+                        dispatch(setToken(userData.token));
+                        dispatch(setRole(userData.role));
+                        dispatch(setId(userData.id));
+                        dispatch(setFullName(userData.fullname));
 
-                          // setUser(res.data.result);
-                          // navigate('/Home');
+
+                        console.log('response', res.data)
+
+                        if(res.data.isSuccess){
+                          navigate('/Home');
+                        }
+
+                        // setUser(res.data.result);
+                        // navigate('/Home');
+                      })
+                      .catch((error) => {
+                        console.log('Giriş Başarısız', error)
                       });
+                      
                   }}
                 >
                   {({ isSubmitting }) => (
