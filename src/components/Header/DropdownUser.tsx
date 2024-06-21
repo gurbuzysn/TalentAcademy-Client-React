@@ -3,12 +3,26 @@ import { Link } from 'react-router-dom';
 
 import UserOne from '../../images/user/user-01.png';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
+  const dispatch = useDispatch();
+  const user = useSelector((state: any) => state.user);
+
+  let email = user.userName;
+  let namePart = email.split('@')[0];
+  let [firstName, lastName] = namePart.split('.');
+  firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+  lastName = lastName.toUpperCase();
+
+  let fullName = `${firstName} ${lastName}`;
+ 
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
@@ -45,9 +59,12 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {fullName}
+
+            
+
           </span>
-          <span className="block text-xs">UX Designer</span>
+          <span className="block text-xs">{user.role}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">

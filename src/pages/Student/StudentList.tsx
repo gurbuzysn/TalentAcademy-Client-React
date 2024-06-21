@@ -99,6 +99,7 @@ function StudentList() {
               <div className="col-span-1 hidden items-center sm:flex">
                 <p className="text-sm text-black dark:text-white">
                   {student.firstName}
+                  
                 </p>
               </div>
 

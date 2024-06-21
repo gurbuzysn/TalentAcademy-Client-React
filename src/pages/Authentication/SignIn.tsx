@@ -177,15 +177,15 @@ const SignIn: React.FC = () => {
                       .then((res) => {
                         const userData = res.data.result;
 
-                        console.log(userData);
+                        console.log('Apiden gelen data', userData);
 
 
                         // gelen user bilgilerini redux store'a kaydediyoruz
-                        dispatch(setUserName(userData.username));
+                        dispatch(setUserName(userData.userName));
                         dispatch(setToken(userData.token));
                         dispatch(setRole(userData.role));
                         dispatch(setId(userData.id));
-                        dispatch(setFullName(userData.fullname));
+                        dispatch(setFullName(userData.fullName));
 
 
                         console.log('response', res.data)
