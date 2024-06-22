@@ -18,6 +18,8 @@
     "apexcharts": "^3.41.0",
     "axios": "^1.7.2",
     "flatpickr": "^4.6.13",
+    "flowbite": "^2.3.0",
+    "flowbite-react": "^0.10.1",
     "formik": "^2.4.6",
     "headlessui": "^0.0.0",
     "jsvectormap": "^1.5.3",

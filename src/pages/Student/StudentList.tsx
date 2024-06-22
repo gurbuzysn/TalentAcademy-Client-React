@@ -47,8 +47,60 @@ function StudentList() {
             <h4 className="text-xl font-semibold text-black dark:text-white">
               Öğrenci Listesi
             </h4>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-end justify-items-end">Öğrenci Ekle</button>
           </div>
+          <div className='flex justify-end me-8 mb-8'>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn">Öğrenci Ekle</button>
+          </div>
+
+
+
+          <dialog>
+          <div className="modal-box">
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click the button below to close</p>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+
+          </dialog>
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
 
           <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
             <div className="col-span-2 flex items-center">
@@ -59,7 +111,7 @@ function StudentList() {
               <p className="font-medium">İsim</p>
             </div>
 
-            <div className="col-span-2 hidden items-center sm:flex">
+            <div className="col-span-1 hidden items-center sm:flex">
               <p className="font-medium">Soyisim</p>
             </div>
 
@@ -67,7 +119,7 @@ function StudentList() {
               <p className="font-medium">Cinsiyet</p>
             </div>
 
-            <div className="col-span-1 flex items-center">
+            <div className="col-span-2 flex items-center">
               <p className="font-medium">Doğum Tarihi</p>
             </div>
 
@@ -103,7 +155,7 @@ function StudentList() {
                 </p>
               </div>
 
-              <div className="col-span-2 hidden items-center sm:flex">
+              <div className="col-span-1 hidden items-center sm:flex">
                 <p className="text-sm text-black dark:text-white">
                   {student.lastName}
                 </p>
@@ -115,7 +167,7 @@ function StudentList() {
                 </p>
               </div>
 
-              <div className="col-span-1 flex items-center">
+              <div className="col-span-2 flex items-center">
                 <p className="text-sm text-black dark:text-white">
                   {new Date(student.dateOfBirth).toLocaleDateString()}
                 </p>
