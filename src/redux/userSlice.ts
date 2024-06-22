@@ -8,6 +8,7 @@ const userSlice = createSlice({
     role: '',
     id: '',
     fullname: '',
+    imageUri: '',
 
   },
   reducers:{
@@ -26,8 +27,11 @@ const userSlice = createSlice({
     setFullName: (state, action) => {
       state.fullname = action.payload;
     },
+    setImageUri: (state, action) => {
+      state.imageUri = action.payload;
+    }
   },
 });
 
-export const { setUserName, setToken, setRole, setId, setFullName } = userSlice.actions;
+export const { setUserName, setToken, setRole, setId, setFullName, setImageUri } = userSlice.actions;
 export default userSlice.reducer;

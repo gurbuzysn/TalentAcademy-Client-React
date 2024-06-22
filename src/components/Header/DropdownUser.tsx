@@ -15,13 +15,13 @@ const DropdownUser = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: any) => state.user);
 
-  let email = user.userName;
-  let namePart = email.split('@')[0];
-  let [firstName, lastName] = namePart.split('.');
-  firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
-  lastName = lastName.toUpperCase();
+  // let email = user.userName;
+  // let namePart = email.split('@')[0];
+  // let [firstName, lastName] = namePart.split('.');
+  // firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+  // lastName = lastName.toUpperCase();
 
-  let fullName = `${firstName} ${lastName}`;
+  // let fullName = `${firstName} ${lastName}`;
  
   // close on click outside
   useEffect(() => {
@@ -59,16 +59,13 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {fullName}
-
-            
-
+            {user.fullname}
           </span>
           <span className="block text-xs">{user.role}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={UserOne} alt="User" />
+          <img className='rounded-full' src={user.imageUri} alt="User" />
         </span>
 
         <svg
@@ -120,10 +117,12 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              My Profile
+              Profilim
             </Link>
           </li>
-          <li>
+
+
+          {/* <li>
             <Link
               to="#"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
@@ -143,10 +142,12 @@ const DropdownUser = () => {
               </svg>
               My Contacts
             </Link>
-          </li>
+          </li> */}
+
+
           <li>
             <Link
-              to="/pages/settings"
+              to="/settings"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
             >
               <svg
@@ -166,11 +167,13 @@ const DropdownUser = () => {
                   fill=""
                 />
               </svg>
-              Account Settings
+              Profil Ayarlarım
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+
+            <Link to={'/'}>
+            <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
           <svg
             className="fill-current"
             width="22"
@@ -188,8 +191,11 @@ const DropdownUser = () => {
               fill=""
             />
           </svg>
-          Log Out
+          Çıkış Yap
         </button>
+            </Link>
+        
+
       </div>
       {/* <!-- Dropdown End --> */}
     </div>

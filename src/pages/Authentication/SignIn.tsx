@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate, Navigate, useAsyncError } from 'react-router-dom';
 //import DropdownUser from '../../components/Header/DropdownUser';
 
-import { setUserName, setToken, setRole, setId, setFullName } from '../../redux/userSlice';
+import { setUserName, setToken, setRole, setId, setFullName, setImageUri } from '../../redux/userSlice';
 
 import { useDispatch } from 'react-redux';
 
@@ -178,14 +178,14 @@ const SignIn: React.FC = () => {
                         const userData = res.data.result;
 
                         console.log('Apiden gelen data', userData);
-
-
-                        // gelen user bilgilerini redux store'a kaydediyoruz
+                        
+                        //Apiden gelen user bilgilerini redux store'a kaydediyoruz
                         dispatch(setUserName(userData.userName));
                         dispatch(setToken(userData.token));
                         dispatch(setRole(userData.role));
                         dispatch(setId(userData.id));
                         dispatch(setFullName(userData.fullName));
+                        dispatch(setImageUri(userData.imageUri));
 
 
                         console.log('response', res.data)
@@ -194,8 +194,6 @@ const SignIn: React.FC = () => {
                           navigate('/Home');
                         }
 
-                        // setUser(res.data.result);
-                        // navigate('/Home');
                       })
                       .catch((error) => {
                         console.log('Giriş Başarısız', error)
