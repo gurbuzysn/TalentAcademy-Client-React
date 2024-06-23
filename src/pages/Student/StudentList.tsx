@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 
 
 import  StudentCreateModal from '../../components/Modals/StudentCreateModal';
+import { Button } from 'antd';
 
 
 
@@ -14,17 +15,9 @@ function StudentList() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const showModal = () => {
-      setIsModalOpen(true);
-  }
-
-  const handleOk = () => {
-      setIsModalOpen(false);
-  }
-
-  const handleCancel = () => {
-      setIsModalOpen(false);
-  }
+  const showModal = () => { setIsModalOpen(true);}
+  const handleOk = () => { setIsModalOpen(false);}
+  const handleCancel = () => { setIsModalOpen(false);}
 
 
   useEffect(() => {
@@ -32,10 +25,13 @@ function StudentList() {
       .then((res) => res.json())
       .then((data) => {
         setStudents(data);
-        console.log(data);
+        console.log('Öğrenciler', data);
       })
       .catch((err) => console.log(err));
   }, []);
+
+ 
+
 
   const DeleteStudent = async (studentId) => {
     try {
@@ -59,6 +55,7 @@ function StudentList() {
       console.error('Error deleting:', error);
     }
   };
+
 
   return (
     <DefaultLayout>
@@ -97,6 +94,9 @@ function StudentList() {
         >
 
         </StudentCreateModal>
+
+
+
 
 
 
