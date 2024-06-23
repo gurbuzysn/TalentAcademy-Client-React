@@ -1,29 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import UserOne from '../../images/user/user-01.png';
-
-import { useSelector, useDispatch } from 'react-redux';
-
+import { useSelector} from 'react-redux';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
-
-  const dispatch = useDispatch();
   const user = useSelector((state: any) => state.user);
 
-  // let email = user.userName;
-  // let namePart = email.split('@')[0];
-  // let [firstName, lastName] = namePart.split('.');
-  // firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
-  // lastName = lastName.toUpperCase();
+  console.log('HEaderdeki user bilgileri : ', user);
 
-  // let fullName = `${firstName} ${lastName}`;
- 
-  // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return;
@@ -39,7 +25,6 @@ const DropdownUser = () => {
     return () => document.removeEventListener('click', clickHandler);
   });
 
-  // close if the esc key is pressed
   useEffect(() => {
     const keyHandler = ({ keyCode }: KeyboardEvent) => {
       if (!dropdownOpen || keyCode !== 27) return;
@@ -67,6 +52,7 @@ const DropdownUser = () => {
         <span className="h-12 w-12 rounded-full">
           <img className='rounded-full' src={user.imageUri} alt="User" />
         </span>
+        
 
         <svg
           className="hidden fill-current sm:block"
