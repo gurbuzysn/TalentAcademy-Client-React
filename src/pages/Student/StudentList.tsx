@@ -3,8 +3,29 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+
+import  StudentCreateModal from '../../components/Modals/StudentCreateModal';
+
+
+
+
 function StudentList() {
   const [students, setStudents] = useState([]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+      setIsModalOpen(true);
+  }
+
+  const handleOk = () => {
+      setIsModalOpen(false);
+  }
+
+  const handleCancel = () => {
+      setIsModalOpen(false);
+  }
+
 
   useEffect(() => {
     fetch('https://localhost:7043/api/Students')
@@ -49,28 +70,33 @@ function StudentList() {
             </h4>
           </div>
           <div className='flex justify-end me-8 mb-8'>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn">Öğrenci Ekle</button>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+            <button onClick={showModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn">Öğrenci Ekle</button>
           </div>
 
+        <StudentCreateModal 
+          isModalOpen={isModalOpen}
+          handleOk={handleOk}
+          handleCancel={handleCancel}
+        >
 
-
-          <dialog>
-          <div className="modal-box">
-    <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4">Press ESC key or click the button below to close</p>
-    <div className="modal-action">
-      <form method="dialog">
-        {/* if there is a button in form, it will close the modal */}
-        <button className="btn">Close</button>
-      </form>
-    </div>
-  </div>
-
-          </dialog>
-
-
-
-      
+        </StudentCreateModal>
 
 
 
@@ -87,20 +113,6 @@ function StudentList() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
 
           <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
             <div className="col-span-2 flex items-center">
