@@ -165,8 +165,8 @@ const SignIn: React.FC = () => {
 
                 <Formik
                   initialValues={{
-                    username: 'yasin.gurbuz@talentacademy.com',
-                    password: 'Admin123*',
+                    username: '',
+                    password: '',
                   }}
                   onSubmit={async (values) => {
                     await axios
@@ -177,8 +177,6 @@ const SignIn: React.FC = () => {
                       .then((res) => {
                         const userData = res.data.result;
 
-                        console.log('Apiden gelen data', userData);
-                        
                         //Apiden gelen user bilgilerini redux store'a kaydediyoruz
                         dispatch(setUserName(userData.userName));
                         dispatch(setToken(userData.token));
@@ -187,11 +185,16 @@ const SignIn: React.FC = () => {
                         dispatch(setFullName(userData.fullName));
                         dispatch(setImageUri(userData.imageUri));
 
-
-                        console.log('response', res.data)
-
                         if(res.data.isSuccess){
-                          navigate('/Home');
+                            if(userData.role === 'Admin'){
+                              navigate('/AdminHome');
+                            }
+                            if(userData.role === 'Trainer'){
+                              navigate('/TrainerHome');
+                            }
+                            if(userData.role === 'Student'){
+                              navigate('/StudentHome');
+                            }
                         }
 
                       })
