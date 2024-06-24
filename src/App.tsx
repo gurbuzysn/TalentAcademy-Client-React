@@ -18,6 +18,7 @@ import Buttons from './pages/UiElements/Buttons';
 
 import StudentList from './pages/Student/StudentList';
 import TrainerHome from './pages/Dashboard/TrainerHome';
+import CourseList from './pages/Course/CourseList';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -61,6 +62,16 @@ function App() {
             <>
               <PageTitle title="Trainer Ana Sayfası" />
               <TrainerHome />
+            </>
+          }
+        />
+
+        <Route
+          path="Course/CourseList"
+          element={
+            <>
+              <PageTitle title="Kurs Listesi" />
+              <CourseList />
             </>
           }
         />

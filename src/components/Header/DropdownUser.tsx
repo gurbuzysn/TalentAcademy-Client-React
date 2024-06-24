@@ -8,7 +8,7 @@ const DropdownUser = () => {
   const dropdown = useRef<any>(null);
   const user = useSelector((state: any) => state.user);
 
-  console.log('HEaderdeki user bilgileri : ', user);
+  console.log('Header-Dropdowuser daki user bilgileri : ', user);
 
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {

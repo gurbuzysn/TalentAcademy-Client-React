@@ -64,7 +64,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <NavLink to="/Home">
+        <NavLink to="/TrainerHome">
           <img src={Logo} alt="Logo" />
         </NavLink>
 
@@ -91,7 +91,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </button>
       </div>
       {/* <!-- SIDEBAR HEADER --> */}
-
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         {/* <!-- Sidebar Menu --> */}
         <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
@@ -101,18 +100,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               MENU
             </h3> */}
             <ul className="mb-6 flex flex-col gap-1.5">
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
               {/* <!-- Menu Item Forms --> */}
               <SidebarLinkGroup
                 activeCondition={
@@ -195,7 +182,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
 
                           <li>
-                              <NavLink to="/Student/StudentList" className={({ isActive }) => 
+                              <NavLink to="/Course/CourseList" className={({ isActive }) => 
                                 'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white' + (isActive && '!text-white')
                               }>
                                 Kursları Listele

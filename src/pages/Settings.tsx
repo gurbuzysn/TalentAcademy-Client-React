@@ -1,8 +1,14 @@
 import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import userThree from '../images/user/user-03.png';
 import DefaultLayout from '../layout/DefaultLayout';
+import { useSelector } from 'react-redux';
+
+
 
 const Settings = () => {
+
+const user = useSelector((state : any) => state.user)
+
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-270">
@@ -13,7 +19,7 @@ const Settings = () => {
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke py-4 px-7 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Personal Information
+                  Kişisel Bilgiler
                 </h3>
               </div>
               <div className="p-7">
@@ -24,7 +30,7 @@ const Settings = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="fullName"
                       >
-                        Full Name
+                        İsim Soyisim
                       </label>
                       <div className="relative">
                         <span className="absolute left-4.5 top-4">
@@ -57,8 +63,7 @@ const Settings = () => {
                           type="text"
                           name="fullName"
                           id="fullName"
-                          placeholder="Devid Jhon"
-                          defaultValue="Devid Jhon"
+                          placeholder={user.fullname || "İsim Bilgisi Bulunamadı"}
                         />
                       </div>
                     </div>
@@ -68,15 +73,14 @@ const Settings = () => {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="phoneNumber"
                       >
-                        Phone Number
+                        Telefon Numarası
                       </label>
                       <input
                         className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         type="text"
                         name="phoneNumber"
                         id="phoneNumber"
-                        placeholder="+990 3343 7865"
-                        defaultValue="+990 3343 7865"
+                        placeholder="+90 --- --- ----"
                       />
                     </div>
                   </div>
@@ -86,7 +90,7 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="emailAddress"
                     >
-                      Email Address
+                      Email Adresi
                     </label>
                     <div className="relative">
                       <span className="absolute left-4.5 top-4">
@@ -119,8 +123,7 @@ const Settings = () => {
                         type="email"
                         name="emailAddress"
                         id="emailAddress"
-                        placeholder="devidjond45@gmail.com"
-                        defaultValue="devidjond45@gmail.com"
+                        placeholder={user.userName}
                       />
                     </div>
                   </div>
@@ -130,15 +133,14 @@ const Settings = () => {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="Username"
                     >
-                      Username
+                      Kullanıcı Adı
                     </label>
                     <input
                       className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                       type="text"
                       name="Username"
                       id="Username"
-                      placeholder="devidjhon24"
-                      defaultValue="devidjhon24"
+                      placeholder={user.fullname}
                     />
                   </div>
 
@@ -197,13 +199,13 @@ const Settings = () => {
                       className="flex justify-center rounded border border-stroke py-2 px-6 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
                       type="submit"
                     >
-                      Cancel
+                      Çıkış
                     </button>
                     <button
                       className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-90"
                       type="submit"
                     >
-                      Save
+                      Kaydet
                     </button>
                   </div>
                 </form>
@@ -214,25 +216,25 @@ const Settings = () => {
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke py-4 px-7 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Your Photo
+                  Fotoğrafım
                 </h3>
               </div>
               <div className="p-7">
                 <form action="#">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="h-14 w-14 rounded-full">
-                      <img src={userThree} alt="User" />
+                      <img className="h-14 w-14 rounded-full" src={user.imageUri} alt="User" />
                     </div>
                     <div>
                       <span className="mb-1.5 text-black dark:text-white">
-                        Edit your photo
+                        Fotoğrafı Düzenle
                       </span>
                       <span className="flex gap-2.5">
                         <button className="text-sm hover:text-primary">
-                          Delete
+                          Sil
                         </button>
                         <button className="text-sm hover:text-primary">
-                          Update
+                          Güncelle
                         </button>
                       </span>
                     </div>
@@ -277,8 +279,8 @@ const Settings = () => {
                         </svg>
                       </span>
                       <p>
-                        <span className="text-primary">Click to upload</span> or
-                        drag and drop
+                        <span className="text-primary">Yüklemek için tıklayın</span> veya
+                        sürükleyip bırakın
                       </p>
                       <p className="mt-1.5">SVG, PNG, JPG or GIF</p>
                       <p>(max, 800 X 800px)</p>
@@ -290,13 +292,13 @@ const Settings = () => {
                       className="flex justify-center rounded border border-stroke py-2 px-6 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
                       type="submit"
                     >
-                      Cancel
+                      Çıkış
                     </button>
                     <button
                       className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-90"
                       type="submit"
                     >
-                      Save
+                      Kaydet
                     </button>
                   </div>
                 </form>

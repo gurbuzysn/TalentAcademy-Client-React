@@ -2,23 +2,15 @@ import DefaultLayout from '../../layout/DefaultLayout';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
-
 import  StudentCreateModal from '../../components/Modals/StudentCreateModal';
-import { Button } from 'antd';
-
-
-
 
 function StudentList() {
   const [students, setStudents] = useState([]);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => { setIsModalOpen(true);}
   const handleOk = () => { setIsModalOpen(false);}
   const handleCancel = () => { setIsModalOpen(false);}
-
 
   useEffect(() => {
     fetch('https://localhost:7043/api/Students')
@@ -30,15 +22,11 @@ function StudentList() {
       .catch((err) => console.log(err));
   }, []);
 
- 
-
-
   const DeleteStudent = async (studentId) => {
     try {
       const response = await axios.delete(
         `https://localhost:7043/api/Students/${studentId}`,
       );
-
       if (response.status === 200) {
         console.log(studentId + ' id li öğrenci silindi');
 
@@ -49,13 +37,11 @@ function StudentList() {
           window.location.reload();
         });
       }
-
       console.log(response);
     } catch (error) {
       console.error('Error deleting:', error);
     }
   };
-
 
   return (
     <DefaultLayout>
@@ -67,23 +53,6 @@ function StudentList() {
             </h4>
           </div>
           <div className='flex justify-end me-8 mb-8'>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
             <button onClick={showModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn">Öğrenci Ekle</button>
           </div>
 
@@ -92,27 +61,7 @@ function StudentList() {
           handleOk={handleOk}
           handleCancel={handleCancel}
         >
-
         </StudentCreateModal>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           <div className="grid grid-cols-6 border-t border-stroke py-4.5 px-4 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
             <div className="col-span-2 flex items-center">
@@ -172,13 +121,11 @@ function StudentList() {
                   {student.lastName}
                 </p>
               </div>
-
               <div className="col-span-1 flex items-center">
                 <p className="text-sm text-black dark:text-white">
                   {student.gender === 1 ? 'Kadın' : 'Erkek'}
                 </p>
               </div>
-
               <div className="col-span-2 flex items-center">
                 <p className="text-sm text-black dark:text-white">
                   {new Date(student.dateOfBirth).toLocaleDateString()}
