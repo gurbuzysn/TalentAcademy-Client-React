@@ -18,7 +18,7 @@ import Buttons from './pages/UiElements/Buttons';
 
 import StudentList from './pages/Student/StudentList';
 import TrainerHome from './pages/Dashboard/TrainerHome';
-import CourseList from './pages/Course/CourseList';
+import CourseList from './pages/Course/CourseHome';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -38,7 +38,7 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/Home"
+          path="/AdminHome"
           element={
             <>
               <PageTitle title="Talent Academy - Online Eğitim Platformu" />
