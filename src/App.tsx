@@ -19,6 +19,7 @@ import Buttons from './pages/UiElements/Buttons';
 import StudentList from './pages/Student/StudentList';
 import TrainerHome from './pages/Dashboard/TrainerHome';
 import CourseList from './pages/Course/CourseHome';
+import CourseCreate from './pages/Course/CourseCreate';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -52,6 +53,16 @@ function App() {
             <>
               <PageTitle title="Öğrenci Listesi" />
               <StudentList />
+            </>
+          }
+        />
+
+        <Route
+          path="/CourseCreate"
+          element={
+            <>
+              <PageTitle title="Kurs Ekleme Sayfası" />
+              <CourseCreate />
             </>
           }
         />

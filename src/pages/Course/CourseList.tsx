@@ -1,6 +1,10 @@
 import { Product } from '../../types/product';
 import ProductOne from '../../images/product/product-01.png';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
+  
 
 const productData: Product[] = [
   {
@@ -15,6 +19,26 @@ const productData: Product[] = [
 
 
 const CourseList = () => {
+
+  const [courseList, setCourseList] = useState([]); 
+
+  useEffect(() => {
+    const courses = async () => {
+      try{
+        const courseList = await axios.get('https://localhost:7043/api/Courses')
+        .then((res : any) => res.json())
+        .then((data) => {
+          setCourseList(data);
+          console.log('Kurslar', data);
+        })
+      }
+      catch(error){
+        console.error("Kurs Listesi çekilirken oluşan hata",error);
+      } 
+    }
+    courses();
+  }, []);  
+
   return (
     <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="py-6 px-4 md:px-6 xl:px-7.5">
@@ -22,7 +46,9 @@ const CourseList = () => {
           Kurs Listesi
         </h4>
         <div className='flex justify-end'>
+          <Link to={'/CourseCreate'} >
             <button className='bg-green-500 hover:bg-green-800 hover:p-5 text-white px-6 py-4 rounded'>Yeni Kurs Ekle</button>
+          </Link>
         </div>
       </div>
 

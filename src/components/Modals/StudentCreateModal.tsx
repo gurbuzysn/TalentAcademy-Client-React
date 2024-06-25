@@ -151,23 +151,6 @@ const StudentCreateModal = ({ isModalOpen, handleOk, handleCancel }) => {
                   </Field>
                   <ErrorMessage name="DateOfBirth" component="div" />
                 </div>
-
-                {/* <Field 
-                name="DateOfBirth">
-                  {({ field }) => (
-                    <DatePicker
-                      {...field}
-                      className=""
-                      placeholder="Doğum Tarihi"
-                      format="YYYY-MM-DD"
-                      value={field.value ? moment(field.value) : null}
-                      onChange={(date) => setFieldValue('DateOfBirth', date)}
-                    />
-                  )}
-                </Field>
-                <ErrorMessage name="DateOfBirth" component="div" />
-              </div> */}
-
                 <div>
                   <Upload
                     {...props}
