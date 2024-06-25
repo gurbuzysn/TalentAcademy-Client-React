@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
-import { useNavigate, Navigate, useAsyncError } from 'react-router-dom';
-//import DropdownUser from '../../components/Header/DropdownUser';
-
+import { useNavigate} from 'react-router-dom';
 import { setUserName, setToken, setRole, setId, setFullName, setImageUri } from '../../redux/userSlice';
-
 import { useDispatch } from 'react-redux';
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-
   const dispatch = useDispatch();
-
   return (
     <div className="w-screen h-screen flex justify-center">
       <div className="flex justify-center items-center">
@@ -21,16 +15,6 @@ const SignIn: React.FC = () => {
           <div className="flex flex-wrap items-center">
             <div className="hidden w-full xl:block xl:w-1/2">
               <div className="py-17.5 px-26 text-center">
-                {/* <Link className="mb-5.5 inline-block" to="/">
-                <img className="hidden dark:block" src={Logo} alt="Logo" />
-                <img className="dark:hidden" src={LogoDark} alt="Logo" />
-              </Link> */}
-
-                {/* <p className="2xl:px-20">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                suspendisse.
-              </p> */}
-
                 <span className="mt-15 inline-block">
                   <svg
                     width="350"
@@ -158,11 +142,9 @@ const SignIn: React.FC = () => {
 
             <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
               <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-                {/* <span className="mb-1.5 block font-medium">Start for free</span> */}
                 <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                   Talent Academy Sitesine Hoş Geldiniz
                 </h2>
-
                 <Formik
                   initialValues={{
                     username: '',
@@ -214,7 +196,6 @@ const SignIn: React.FC = () => {
                           <Field
                             type="email"
                             name="username"
-                            // placeholder="Lütfen Email Adresinizi Giriniz"
                             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                           />
                           <ErrorMessage name="username" component="div" />

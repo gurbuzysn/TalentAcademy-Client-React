@@ -20,6 +20,7 @@ import StudentList from './pages/Student/StudentList';
 import TrainerHome from './pages/Dashboard/TrainerHome';
 import CourseList from './pages/Course/CourseHome';
 import CourseCreate from './pages/Course/CourseCreate';
+import CourseAddTopic from './pages/Course/CourseAddTopic';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -53,6 +54,16 @@ function App() {
             <>
               <PageTitle title="Öğrenci Listesi" />
               <StudentList />
+            </>
+          }
+        />
+
+        <Route
+          path="/CourseAddTopic"
+          element={
+            <>
+              <PageTitle title="Kursa Bölüm Ekleme Sayfası" />
+              <CourseAddTopic />
             </>
           }
         />
