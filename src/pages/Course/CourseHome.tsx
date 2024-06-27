@@ -1,13 +1,24 @@
-import TrainerLayout from "../../layout/TrainerLayout"
-import CourseList from "./CourseList"
+import TrainerLayout from '../../layout/TrainerLayout';
+import CourseAddTopic from './CourseAddTopic';
+import CourseCreate from './CourseCreate';
+import CourseList from './CourseList';
+import CourseSummary from './CourseSummary';
 
- const CourseHome = () => {
+const CourseHome = () => {
   return (
-
     <TrainerLayout>
-        <CourseList></CourseList>
-    </TrainerLayout>
-  )
-}
 
-export default CourseHome
+      <div className='grid grid-cols-2 gap-10'>
+        <CourseCreate></CourseCreate>
+        <CourseAddTopic></CourseAddTopic>
+      </div>
+
+      <div className='flex justify-center mt-10'>
+        <CourseSummary></CourseSummary>
+      </div>
+
+    </TrainerLayout>
+  );
+};
+
+export default CourseHome;

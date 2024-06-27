@@ -24,7 +24,7 @@ const CourseList = () => {
           Kurs Listesi
         </h4>
         <div className="flex justify-end">
-          <Link to={'/CourseCreate'}>
+          <Link to={'/CourseList'}>
             <button className="bg-green-500 hover:bg-green-800 hover:p-5 text-white px-6 py-4 rounded">
               Yeni Kurs Ekle
             </button>

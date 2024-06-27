@@ -21,6 +21,7 @@ import TrainerHome from './pages/Dashboard/TrainerHome';
 import CourseList from './pages/Course/CourseHome';
 import CourseCreate from './pages/Course/CourseCreate';
 import CourseAddTopic from './pages/Course/CourseAddTopic';
+import CourseHome from './pages/Course/CourseHome';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -49,11 +50,31 @@ function App() {
           }
         />
         <Route
+          path="/CourseList"
+          element={
+            <>
+              <PageTitle title="Kurs Listesi" />
+              <CourseList />
+            </>
+          }
+        />
+
+        <Route
           path="/Student/StudentList"
           element={
             <>
               <PageTitle title="Öğrenci Listesi" />
               <StudentList />
+            </>
+          }
+        />
+
+        <Route
+          path="/CourseHome"
+          element={
+            <>
+              <PageTitle title="Kursa Ekleme Sayfası" />
+              <CourseHome />
             </>
           }
         />
@@ -88,15 +109,7 @@ function App() {
           }
         />
 
-        <Route
-          path="Course/CourseList"
-          element={
-            <>
-              <PageTitle title="Kurs Listesi" />
-              <CourseList />
-            </>
-          }
-        />
+        {/* ---------------------------------------------------------------- */}
 
         <Route
           path="/calendar"
@@ -184,7 +197,7 @@ function App() {
           // path="/auth/signin"
           element={
             <>
-              <PageTitle title="Signin | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Talent Academy Giriş Sayfası" />
               <SignIn />
             </>
           }
