@@ -15,13 +15,11 @@ import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
-
 import StudentList from './pages/Student/StudentList';
 import TrainerHome from './pages/Dashboard/TrainerHome';
-import CourseList from './pages/Course/CourseHome';
 import CourseCreate from './pages/Course/CourseCreate';
+import CourseList from './pages/Course/CourseList';
 import CourseAddTopic from './pages/Course/CourseAddTopic';
-import CourseHome from './pages/Course/CourseHome';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -60,6 +58,16 @@ function App() {
         />
 
         <Route
+          path="/CourseAddTopic"
+          element={
+            <>
+              <PageTitle title="Bölüm Ekleme Sayfası" />
+              <CourseAddTopic />
+            </>
+          }
+        />
+
+        <Route
           path="/Student/StudentList"
           element={
             <>
@@ -69,7 +77,7 @@ function App() {
           }
         />
 
-        <Route
+        {/* <Route
           path="/CourseHome"
           element={
             <>
@@ -77,17 +85,7 @@ function App() {
               <CourseHome />
             </>
           }
-        />
-
-        <Route
-          path="/CourseAddTopic"
-          element={
-            <>
-              <PageTitle title="Kursa Bölüm Ekleme Sayfası" />
-              <CourseAddTopic />
-            </>
-          }
-        />
+        /> */}
 
         <Route
           path="/CourseCreate"

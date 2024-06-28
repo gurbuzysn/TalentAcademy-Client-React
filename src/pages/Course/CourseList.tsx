@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import TrainerHome from '../Dashboard/TrainerHome';
+import TrainerLayout from '../../layout/TrainerLayout';
 
 const CourseList = () => {
   const [courseList, setCourseList] = useState([]);
@@ -18,13 +20,15 @@ const CourseList = () => {
   }, []);
 
   return (
-    <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+
+    <TrainerLayout>
+      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="py-6 px-4 md:px-6 xl:px-7.5">
         <h4 className="text-xl font-semibold text-black dark:text-white">
           Kurs Listesi
         </h4>
         <div className="flex justify-end">
-          <Link to={'/CourseList'}>
+          <Link to={'/CourseCreate'}>
             <button className="bg-green-500 hover:bg-green-800 hover:p-5 text-white px-6 py-4 rounded">
               Yeni Kurs Ekle
             </button>
@@ -62,22 +66,12 @@ const CourseList = () => {
               </p>
             </div>
           </div>
-          {/* <div className="col-span-2 hidden items-center sm:flex">
-            <p className="text-sm text-black dark:text-white">
-              {course.category}
-            </p>
-          </div>
-          <div className="col-span-2 flex items-center">
-            <p className="text-sm text-black dark:text-white">
-              ${course.price}
-            </p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="text-sm text-black dark:text-white">{product.sold}</p>
-          </div> */}
         </div>
       ))}
     </div>
+    </TrainerLayout>
+    
+    
   );
 };
 

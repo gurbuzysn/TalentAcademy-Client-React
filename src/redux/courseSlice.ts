@@ -6,6 +6,8 @@ const courseSlice = createSlice({
         courseName: '',
         description: '',
         image: null,
+        topicName: '',
+        lessons: []
     },
     reducers:{
         setCourseName: (state, action) => {
@@ -16,9 +18,15 @@ const courseSlice = createSlice({
         },
         setImage: (state, action) => {
             state.image = action.payload;
+        },
+        setTopicName: (state, action) => {
+            state.topicName = action.payload;
+        },
+        setLessons: (state, action) => {
+            state.lessons = action.payload;
         }
     }
 })
 
-export const { setCourseName, setDescription, setImage } = courseSlice.actions;
+export const { setCourseName, setDescription, setImage, setTopicName, setLessons } = courseSlice.actions;
 export default courseSlice.reducer;
