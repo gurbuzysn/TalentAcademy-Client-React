@@ -1,89 +1,60 @@
-import axios from "axios";
-import TrainerLayout from "../../layout/TrainerLayout";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-
-
-
+import axios from 'axios';
+import TrainerLayout from '../../layout/TrainerLayout';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const CourseAddTopic = () => {
-
   const CourseName = useSelector((state: any) => state.course.courseName);
   const [course, setCourse] = useState<any>({});
 
-  console.log("CourseName : ",CourseName);
+  console.log('CourseName : ', CourseName);
 
+  useEffect(() => {
+    const fetchCourseData = async () => {
+      try {
+        const courseData = await axios.get(
+          `https://localhost:7043/api/Courses/${CourseName}`,
+        );
+        setCourse(courseData.data);
+      } catch (error) {
+        console.log('Hataya Düştü');
+      }
+    };
 
-useEffect(() => {
-  const fetchCourseData = async () => {
-    try {
-      const courseData = await axios.get(`https://localhost:7043/api/Courses/${CourseName}`);
-      setCourse(courseData.data)
-
-    } catch (error) {
-      console.log("Hataya Düştü");
-  }
-}
-
-if(CourseName){
-  fetchCourseData();
-}
-
-}, [CourseName]);
+    if (CourseName) {
+      fetchCourseData();
+    }
+  }, [CourseName]);
 
   return (
     <TrainerLayout>
-    <div>
 
-      <div>
-        <img src={course.imageUri} alt="" />
+Kursa Bölüm ekleme sayfası
+
+      <div className='flex justify-center items-center'>
+        <div className="bg-custom-f9f7f7 w-8/12 rounded-3xl">
+
+
+          <div className='flex justify-center '>
+            <img className='rounded-lg w-2/3 max-h-100' src={course.imageUri} alt="" />
+          </div>
+
+
+
+          <div className='text-center m-5'>
+            <div className='font-bold text-3xl mb-2' >{course.name}</div>
+          </div>
+
+          <div className='text-center m-5'>
+            <h2 className='text-gra'>{course.description}</h2>
+          </div>
+        </div>
       </div>
-
-        <div>
-          <h2>{course.name}</h2>
-        </div>
-
-        <div>
-          <h2>{course.description}</h2>
-        </div>
-
-    </div>
     </TrainerLayout>
-  )
-}
+  );
+};
 
-export default CourseAddTopic
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default CourseAddTopic;
 
 // import { Button, Input, Upload, message } from 'antd';
 // import { Formik, Form, Field } from 'formik';
