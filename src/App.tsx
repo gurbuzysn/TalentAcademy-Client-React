@@ -58,7 +58,8 @@ function App() {
         />
 
         <Route
-          path="/CourseAddTopic"
+          path="/CourseAddTopic/:id?"
+          Component={CourseAddTopic}
           element={
             <>
               <PageTitle title="Bölüm Ekleme Sayfası" />
