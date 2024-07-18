@@ -2,14 +2,13 @@ import axios from 'axios';
 import TrainerLayout from '../../layout/TrainerLayout';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Form, useParams } from 'react-router-dom';
 
 import { Upload, UploadProps } from 'antd';
+import { Formik, FormikHelpers, FormikValues } from 'formik';
 const { Dragger } = Upload;
 
-const props: UploadProps = {
-  
-}
+const props: UploadProps = {};
 
 const CourseAddTopic = () => {
   const CourseName = useSelector((state: any) => state.course.courseName);
@@ -77,24 +76,15 @@ const CourseAddTopic = () => {
             </div>
           )}
 
-
-          <div>
-            <div>
-              <h3 className="text-xl text-center ms-10 mb-5 mt-10">
-                Kursa Bölüm Ekle
-              </h3>
-            </div>
-            <Dragger {...props}>
-    <p className="ant-upload-drag-icon">
-      <InboxOutlined />
-    </p>
-    <p className="ant-upload-text">Click or drag file to this area to upload</p>
-    <p className="ant-upload-hint">
-      Support for a single or bulk upload. Strictly prohibited from uploading company data or other
-      banned files.
-    </p>
-  </Dragger>
-          </div>
+          <Formik initialValues={undefined} onSubmit={() => {}}>
+            <Form>
+              <div>
+                <h3 className="text-xl text-center ms-10 mb-5 mt-10">
+                  Kursa Bölüm Ekle
+                </h3>
+              </div>
+            </Form>
+          </Formik>
         </div>
       </div>
     </TrainerLayout>
