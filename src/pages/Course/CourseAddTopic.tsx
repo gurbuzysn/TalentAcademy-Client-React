@@ -76,7 +76,15 @@ const CourseAddTopic = () => {
             </div>
           )}
 
-          <Formik initialValues={undefined} onSubmit={() => {}}>
+
+          <Formik 
+          initialValues={{
+
+          }
+            
+          } 
+          onSubmit={(values: FormikValues, { setSubmitting }: FormikHelpers<FormikValues>) => {;
+          } } >
             <Form>
               <div>
                 <h3 className="text-xl text-center ms-10 mb-5 mt-10">
@@ -85,6 +93,20 @@ const CourseAddTopic = () => {
               </div>
             </Form>
           </Formik>
+
+
+          {/* <Formik initialValues={undefined} onSubmit={() => {}}>
+            <Form>
+              <div>
+                <h3 className="text-xl text-center ms-10 mb-5 mt-10">
+                  Kursa Bölüm Ekle
+                </h3>
+              </div>
+            </Form>
+          </Formik> */}
+
+
+
         </div>
       </div>
     </TrainerLayout>
