@@ -1,3 +1,7 @@
+import React  from 'react';
+import { createRoot } from 'react-dom/client';
+import Demo from './demo'; 
+
 import axios from 'axios';
 import TrainerLayout from '../../layout/TrainerLayout';
 import { useSelector } from 'react-redux';
@@ -75,6 +79,10 @@ const CourseAddTopic = () => {
               <h2 className="text-gra">{course.description}</h2>
             </div>
           )}
+
+
+
+createRoot(document.getElementById('container')).render(<Demo/>)
 
 
           {/* <Formik 
